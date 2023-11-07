@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do App</title>
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <main class="main">
+        <aside class="sidebar">
+            <ul>
+                <li class="search-list">
+                    <div class="details">
+                        <span class="icon"><i class="bi bi-search"></i></span>
+                        <div class="searchbar">
+                            <input type="search" class="search search-input" id="searchbar" placeholder="Search...">
+                        </div>
+                    </div>
+                </li>
+                <li  class="nav-item selected" data-target="reminders">
+                    <div class="details">
+                        <span class="icon"><i class="bi bi-bell"></i></span>
+                        <h4 class="nav-item" data-target="reminders">REMINDERS</h4>
+                        <div class="count"><p>7</p></div>
+                    </div>
+                </li>
+                <li  class="nav-item" data-target="to-do-list">
+                    <div class="details">
+                        <span class="icon"><i class="bi bi-clipboard-fill"></i></span>
+                        <h4 class="nav-item" data-target="to-do-list">TO DO LIST</h4>
+                        <div class="count"><p>10</p></div>
+                    </div>
+                </li>
+                <li  class="nav-item" data-target="shopping-list">
+                    <div class="details">
+                        <span class="icon"><i class="bi bi-basket2"></i></span>
+                        <h4>SHOPPING LIST</h4>
+                        <div class="count"><p>06</p></div>
+                    </div>
+                </li>
+                <li class="nav-item" data-target="other">
+                    <div class="details">
+                        <span class="icon"><i class="bi bi-three-dots"></i></span>
+                        <h4>OTHER</h4>
+                        <div class="count"><p>3</p></div>
+                    </div>
+                </li>
+            </ul>
+            <div class="toggle"></div>
+        </aside>
+        <section class="main-content">
+            <div class="container to-do-list">
+                <div class="dropdown">
+                    <button class="toggle-btn">GROCERIES</button>
+                    <div class="content">
+                        <button class="clear" onclick="clearChecklist(this)">Clear Checklist</button>
+                        <div class="checklist">
+                            <label>
+                                <input type="checkbox" class="custom-checkbox" onchange="toggleStrikethrough(this)">
+                                <span class="checkmark"></span>
+                                <p>Butter</p>
+                            </label>
+                            <label>
+                                <input type="checkbox" class="custom-checkbox" onchange="toggleStrikethrough(this)">
+                                <span class="checkmark"></span>
+                                <p>Orange Juice</p>
+                            </label>
+                            <label>
+                                <input type="checkbox" class="custom-checkbox" onchange="toggleStrikethrough(this)">
+                                <span class="checkmark"></span>
+                                <p>Cheese</p>
+                            </label>
+                            <label>
+                                <input type="checkbox" class="custom-checkbox" onchange="toggleStrikethrough(this)">
+                                <span class="checkmark"></span>
+                                <p>Chilli</p>
+                            </label>
+                            <label>
+                                <input type="checkbox" class="custom-checkbox" onchange="toggleStrikethrough(this)">
+                                <span class="checkmark"></span>
+                                <p>Potatoes</p>
+                            </label>
+                            <label>
+                                <input type="checkbox" class="custom-checkbox" onchange="toggleStrikethrough(this)">
+                                <span class="checkmark"></span>
+                                <p>Avocado</p>
+                            </label>    
+                        </div>
+                        <div class="add-list-item">
+                            <button class="add-icon"><i class="bi bi-plus-square"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="toggle-btn">ELECTRONICS</button>
+                    <div class="content">
+                        <button class="clear" onclick="clearChecklist(this)">Clear Checklist</button>
+                        <div class="checklist">
+                            <label>
+                                <input type="checkbox" class="custom-checkbox" onchange="toggleStrikethrough(this)">
+                                <span class="checkmark"></span>
+                                <p>Flat Screen TV</p>
+                            </label>
+                            <label>
+                                <input type="checkbox" class="custom-checkbox" onchange="toggleStrikethrough(this)">
+                                <span class="checkmark"></span>
+                                <p>Get Radio Fixed</p>
+                            </label>
+                            <label>
+                                <input type="checkbox" class="custom-checkbox" onchange="toggleStrikethrough(this)">
+                                <span class="checkmark"></span>
+                                <p>Home Sound System</p>
+                            </label>
+                            <label>
+                                <input type="checkbox" class="custom-checkbox" onchange="toggleStrikethrough(this)">
+                                <span class="checkmark"></span>
+                                <p>Extension Cord</p>
+                            </label>
+                        </div>
+                        <div class="add-list-item">
+                            <button class="add-icon"><i class="bi bi-plus-square"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="toggle-btn">BOOKS</button>
+                    <div class="content">
+                        <p>Make a List <span><i class="bi bi-file-earmark-plus-fill"></i></span></p>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="toggle-btn">CAR</button>
+                    <div class="content">
+                        <p>Make a List <span><i class="bi bi-file-earmark-plus-fill"></i></span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="container reminders">
+                <h2>REMINDERS</h2>
+                <ul id="reminder-list">
+                    <li>Buy groceries <div class="reminder-details"><span class="timestamp">12:00 PM</span><button>Edit</button><button>Remove</button></div></li>
+                    <li>Finish the project report <div class="reminder-details"><span class="timestamp">06:40 AM</span><button>Edit</button><button>Remove</button></div></li>
+                    <li>Go for a run <div class="reminder-details"><span class="timestamp">10:30 AM</span><button>Edit</button><button>Remove</button></div></li>
+                    <li>Attend the webinar <div class="reminder-details"><span class="timestamp">03:30 AM</span><button>Edit</button><button>Remove</button></div></li>
+                    <li>Plan the weekend trip <div class="reminder-details"><span class="timestamp">08:22 AM</span><button>Edit</button><button>Remove</button></div></li>
+                    <li>Birthday party <div class="reminder-details"><span class="timestamp">07:00 PM</span><button>Edit</button><button>Remove</button></div></li>
+                    <li>Submit the expense report <div class="reminder-details"><span class="timestamp">05:30 PM</span><button>Edit</button><button>Remove</button></div></li>
+                </ul>
+                <div class="add-reminder">
+                    <input type="text" id="reminder-input" placeholder="Add a new reminder">
+                    <button class="add-button">Add</button>
+                </div>
+            </div>
+            <div class="container shopping-list">
+                <button class="clear" onclick="clearChecklist(this)">Clear Checklist</button>
+                <h2>SHOPPING LIST</h2>
+                <div class="checklist">
+                    <label>
+                        <input type="checkbox" class="custom-checkbox" onchange="toggleStrikethrough(this)">
+                        <span class="checkmark"></span>
+                        <p>Butter</p>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="custom-checkbox" onchange="toggleStrikethrough(this)">
+                        <span class="checkmark"></span>
+                        <p>Orange Juice</p>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="custom-checkbox" onchange="toggleStrikethrough(this)">
+                        <span class="checkmark"></span>
+                        <p>Chilli</p>
+                        </label>
+                    <label>
+                        <input type="checkbox" class="custom-checkbox" onchange="toggleStrikethrough(this)">
+                        <span class="checkmark"></span>
+                        <p>Cheese</p>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="custom-checkbox" onchange="toggleStrikethrough(this)">
+                        <span class="checkmark"></span>
+                        <p>Potatoes</p>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="custom-checkbox" onchange="toggleStrikethrough(this)">
+                        <span class="checkmark"></span>
+                        <p>Avocado</p>
+                    </label>
+                </div>
+                <div class="add-list-item">
+                    <button class="add-icon"><i class="bi bi-plus-circle"></i></button>
+                </div>
+            </div>
+            <div class="container other">
+                <h2>OTHER</h2>
+                <div class="task text-center">
+                    <h3>Configure Task Priority</h3>
+                    <p>Set the priority level for your tasks.</p>
+                    <div class="priority-selector">
+                        <label for="high-priority">High <input type="radio" id="high-priority" name="priority" value="high"></label>
+                        
+                        <label for="medium-priority">Medium <input type="radio" id="medium-priority" name="priority" value="medium"></label>
+                        
+                        <label for="low-priority">Low <input type="radio" id="low-priority" name="priority" value="low"></label>
+                    </div>
+
+                    <div class="archived-section mt-10 text-center">
+                        <h3>Archived Items</h3>
+                        <ul class="archived-list">
+                            <li>Task 1 (Archived)</li>
+                            <li>Task 2 (Archived)</li>
+                            <li>Task 3 (Archived)</li>
+                        </ul>
+                    </div>
+
+                    <div class="customization-section mt-10">
+                        <h3>App Customization</h3>
+                        <div class="customization-options">
+                            <label for="background-color">Background Color:</label>
+                            <input type="color" id="background-color">
+                            
+                            <label for="font-size">Font Size:</label>
+                            <select id="font-size" class="text-blue-500">
+                                <option value="small">Small</option>
+                                <option value="medium">Medium</option>
+                                <option value="large">Large</option>
+                            </select>
+                            
+                            <label for="theme-color">Theme Color:</label>
+                            <input type="color" id="theme-color">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="./app.js"></script>
+</body>
+</html>
